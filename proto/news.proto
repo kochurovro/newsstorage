@@ -1,0 +1,18 @@
+syntax="proto3";
+
+package web;
+
+option go_package = "spec";
+
+service NewsService {
+    rpc GetNews(GetNewsRequest) returns (GetNewsResponse);
+}
+
+message GetNewsResponse {
+    string title = 1;
+    int64 timestamp = 2;
+}
+
+message GetNewsRequest {
+    string id = 1;
+}
