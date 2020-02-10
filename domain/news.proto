@@ -1,16 +1,15 @@
 syntax="proto3";
 
-package web;
-
-option go_package = "spec";
+package domain;
 
 service NewsService {
     rpc GetNews(GetNewsRequest) returns (GetNewsResponse);
 }
 
 message GetNewsResponse {
-    string title = 1;
-    int64 timestamp = 2;
+    string uid = 1;
+    string title = 2;
+    int64 timestamp = 3;
 }
 
 message GetNewsRequest {
