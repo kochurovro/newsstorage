@@ -1,0 +1,17 @@
+version: "3"
+services:
+  nats:
+    image: nats
+    ports:
+      - "8222:8222"
+      - "4222:4222"
+    network_mode: host
+  mongo:
+    container_name: mongo
+    image: mongo
+    volumes:
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo-js:ro
+      - ./mongo-volume:/data/db
+    ports:
+      - "27017:27017"
+    network_mode: host
